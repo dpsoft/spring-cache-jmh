@@ -1,6 +1,6 @@
 buildscript {
   ext {
-    springBootVersion = '2.1.2.RELEASE'
+    springBootVersion = '2.6.6'
   }
   repositories {
     mavenCentral()
@@ -11,7 +11,7 @@ buildscript {
 }
 
 plugins {
-  id "me.champeau.gradle.jmh" version "0.4.7"
+  id "me.champeau.gradle.jmh" version "0.5.3"
 }
 
 apply plugin: 'java'
@@ -35,9 +35,11 @@ repositories {
 }
 
 dependencies {
-  compile 'org.ehcache:ehcache'
+//   compile 'org.ehcache:ehcache'
+  compile 'com.github.ben-manes.caffeine:caffeine'
   compile 'org.springframework.boot:spring-boot-starter-cache'
   testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  testImplementation group: 'junit', name: 'junit-dep', version: '4.8.2'
 }
 
 jmh {
